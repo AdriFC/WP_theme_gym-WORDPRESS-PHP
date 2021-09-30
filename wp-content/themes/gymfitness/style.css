@@ -22,7 +22,7 @@
    --grisOscuro: #2F2E2E;
    --grisClaro: #EBEBEB;
    --blanco: #ffffff;
-   --black: #000000;
+   --negro: #000000;
 }
 
 /* apply a natural box layout model to all elements, but allowing components to change */
@@ -85,6 +85,27 @@ img {
    max-width: 1200px;
    width: 95%;
    margin: 0 auto;
+}
+
+hr {
+   border: 1px solid var(--grisClaro);
+}
+
+.imagen-destacada {
+   margin-bottom: 3rem;
+}
+
+/*Utilidades*/
+.text-center {
+   text-align: center;
+}
+
+.texto-primario {
+   color: var(--colorPrimario);
+}
+
+.seccion {
+   padding: 5rem 0;
 }
 
 /*Header*/
@@ -212,4 +233,86 @@ img {
 .slicknav_nav a:hover {
    background: transparent;
    color: var(--colorPrimario);
+}
+
+/*Footer*/
+.contenido-footer {
+   padding: 4rem 0;
+}
+
+@media (min-width: 768px) {
+   .contenido-footer {
+      display:flex;
+      justify-content: space-between;
+   }
+}
+
+.site-footer .menu-principal {
+   display: block;
+}
+
+.site-footer a {
+   color: var(--negro);
+   text-align: center;
+   font-size: 2.4rem;
+   padding: 0 1rem;
+}
+
+.site-footer .menu-principal .current_page_item {
+   border: none;
+}
+
+@media (min-width: 768px) {
+   .site-footer .menu-principal .current_page_item {
+      border-bottom: 3px solid var(--colorPrimario);
+   }
+}
+
+.site-footer .menu-principal a::before,
+.site-footer .menu-principal a::after {
+   display: none;
+}
+
+.copyright {
+   text-align: center;
+   font-family: var(--fuentePrincipal);
+   font-size: 1.8rem;
+   margin: 2rem 0 0 0;
+}
+
+@media (min-width: 768px) {
+   .copyright {
+      font-size: 2.4rem;
+      margin: 0;
+   }
+}
+
+/*Páginas*/
+.pagina h1 {
+   margin-bottom: 4rem;
+}
+
+@media (min-width: 768px) {
+   .pagina.con-sidebar {
+      display: flex;
+      justify-content: space-between;
+   }
+
+   .con-sidebar .contenido-principal {
+      flex: 0 0 calc(65% - 2rem);
+   }
+
+   .con-sidebar .sidebar {
+      flex: 0 0 calc(35% - 2rem);
+   }
+}
+
+/*No sidebar*/
+.no-sidebar {
+   display: flex;
+   justify-content: center;
+}
+
+.no-sidebar .contenido-principal {
+   flex: 0 1 800px;
 }
