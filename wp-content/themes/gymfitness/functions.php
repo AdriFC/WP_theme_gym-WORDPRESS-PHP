@@ -43,4 +43,31 @@ function gymfitness_scripts_styles() {
 }    
 add_action('wp_enqueue_scripts', 'gymfitness_scripts_styles');
 
+//Definir zona de Widgets
+function gymfitness_widgets() {
+    register_sidebar( array(
+        'name' => 'Sidebar 1',
+        'id' => 'sidebar_1',
+        'before_widget' => '<div class="widget">',
+        'after_widget' => '</div>',
+        'before_title' => '<h3 class="text-center texto-primario">',
+        'after_title' => '</h3>'
+    ));
+    register_sidebar( array(
+        'name' => 'Sidebar 2',
+        'id' => 'sidebar_2',
+        'before_widget' => '<div class="widget">',
+        'after_widget' => '</div>',
+        'before_title' => '<h3 class="text-center texto-primario">',
+        'after_title' => '</h3>'
+    ));
+}
+add_action('widgets_init', 'gymfitness_widgets');
+
+// Deshabilitar el manejo de widgets desde el editor de bloques de Gutenberg
+add_filter( 'gutenberg_use_widgets_block_editor', '__return_false', 100 );
+ 
+// Deshabilitar el editor de bloques para el manejo de widgets
+add_filter( 'use_widgets_block_editor', '__return_false' );
+
 ?>
