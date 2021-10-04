@@ -9,6 +9,9 @@ function gymfitness_setup() {
     //Habilitar imagenes destacadas
     add_theme_support('post-thumbnails');
 
+    //Títulos SEO
+    add_theme_support('title-tag');
+
     //Agregar imágenes de tamaño personalizado
     add_image_size('square', 350, 350, true);
     add_image_size('portrait', 350, 724, true);
