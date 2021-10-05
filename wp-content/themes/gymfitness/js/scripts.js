@@ -4,6 +4,13 @@ jQuery(document).ready(($) => {
     appendTo: ".site-header",
   });
 
+  //Agregar Slider
+  $('.listado-testimoniales').bxSlider({
+    auto: true,
+    mode: 'fade',
+    controls: false
+  });
+
 //   // Mapa de Leaflet
 //   const lat = document.querySelector('#lat').value,
 //   lng = document.querySelector('#lng').value,
