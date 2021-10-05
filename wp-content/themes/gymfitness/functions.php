@@ -46,7 +46,7 @@ function gymfitness_scripts_styles() {
 
     //Leaflet CSS
     if(is_page('contacto')):
-        wp_enqueue_style('leafletCSS', 'https://unpkg.com/leaflet@1.7.1/dist/leaflet.css', array(), '1.7.1');
+        wp_enqueue_style('leaftletCSS', 'https://unpkg.com/leaflet@1.5.1/dist/leaflet.css', array(), '1.5.1');
     endif;
 
     //Google fonts
@@ -60,12 +60,12 @@ function gymfitness_scripts_styles() {
 
     //LightBox JS
     if(is_page('galeria')):
-        wp_enqueue_script('lightboxJS', get_template_directory_uri() . '/js/jquery.lightbox.min.js', array('jquery'), '2.11.3', true);
+        wp_enqueue_script('lightboxJS', get_template_directory_uri() . '/js/lightbox.min.js', array('jquery'), '2.11.3', true);
     endif;
 
     //Leaflet JS
     if(is_page('contacto')):
-        wp_enqueue_script('leafletJS', 'https://unpkg.com/leaflet@1.7.1/dist/leaflet.js', array(), '1.7.1', true);
+        wp_enqueue_script('leafletJS', 'https://unpkg.com/leaflet@1.5.1/dist/leaflet.js', array(), '1.5.1', true);
     endif;
     
     //Scripts
@@ -100,4 +100,27 @@ add_filter( 'gutenberg_use_widgets_block_editor', '__return_false', 100 );
 // Deshabilitar el editor de bloques para el manejo de widgets
 add_filter( 'use_widgets_block_editor', '__return_false' );
 
+/*Imagen Hero*/
+function gymfitness_hero_image() {
+    //Obtener id página principal
+    $front_page_id = get_option('page_on_front');
+    //Obtener id imagen
+    $id_imagen = get_field('imagen_hero', $front_page_id);
+    //Obtener la imagen
+    $imagen = wp_get_attachment_image_src($id_imagen, 'full')[0];
+
+    //Style CSS
+    wp_register_style('custom', false);
+    wp_enqueue_style('custom');
+
+    $imagen_destacada_css = "
+        body.home .site-header {
+            background-image: linear-gradient( rgba(0,0,0,0.75), rgba(0,0,0,0.75)), url($imagen);
+        }
+    ";
+
+    wp_add_inline_style('custom', $imagen_destacada_css);
+}
+add_action('init', 'gymfitness_hero_image');
+    
 ?>
