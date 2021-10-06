@@ -5,17 +5,21 @@ jQuery(document).ready(($) => {
   });
 
   //Agregar Slider
-  $('.listado-testimoniales').bxSlider({
-    auto: true,
-    mode: 'fade',
-    controls: false
-  });
+  if($('.listado-testimoniales').length > 0 ) {
+      $('.listado-testimoniales').bxSlider({
+          auto: true,
+          mode: 'fade',
+          controls: false
+      });
+  }
+  
 
-//   // Mapa de Leaflet
+  // Mapa de Leaflet
 //   const lat = document.querySelector('#lat').value,
 //   lng = document.querySelector('#lng').value,
 //   direccion = document.querySelector('#direccion').value;
 
+//   console.log({ lat, lng })
 
 // if(lat && lng && direccion) {
 // var map = L.map('mapa').setView([lat, lng], 15);
@@ -29,3 +33,20 @@ jQuery(document).ready(($) => {
 //     .openPopup();
 // }
 });
+
+//Agregar posición fija en el header al hacer scroll (sticky menú)
+window.onscroll = () => {
+  const scroll = window.scrollY;
+  
+  const headerNav = document.querySelector('.barra-navegacion');
+  const documentBody = document.querySelector('body');
+
+  //Si la cantidad de scroll es mayor a, agregar una clase
+  if (scroll > 300) {
+    headerNav.classList.add('fixed-top');
+    documentBody.classList.add('ft-activo');
+  }else {
+    headerNav.classList.remove('fixed-top');
+    documentBody.classList.remove('ft-activo');
+  }
+}

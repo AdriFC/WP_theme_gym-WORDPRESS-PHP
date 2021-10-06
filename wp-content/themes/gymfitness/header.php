@@ -12,7 +12,9 @@
     <div class="contenedor">
         <div class="barra-navegacion">
             <div class="logo">
-                <img src="<?php echo get_template_directory_uri(); ?>/img/logo.svg" alt="logo sitio">
+                <a href="<?php echo esc_url(site_url('/')) ?>">
+                    <img src="<?php echo get_template_directory_uri(); ?>/img/logo.svg" alt="logo sitio">
+                </a>   
             </div>
             <?php
                 $args = array(
